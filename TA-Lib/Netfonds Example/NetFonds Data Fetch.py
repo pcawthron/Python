@@ -84,13 +84,10 @@ DATA_15MIN.GOOG['FMA'] = talib.MA(DATA_15MIN.GOOG.close, 9)
 DATA_15MIN.AAPL['SMA'] = talib.MA(DATA_15MIN.AAPL.close, 15)
 DATA_15MIN.AAPL['FMA'] = talib.MA(DATA_15MIN.AAPL.close, 9)
 
-mondays = WeekdayLocator(MONDAY)        # major ticks on the mondays
-alldays    = DayLocator()               # minor ticks on the days
-weekFormatter = DateFormatter('%b %d')  # Eg, Jan 12
-dayFormatter = DateFormatter('%d')
-
-
-# Plot
+#mondays = WeekdayLocator(MONDAY)        # major ticks on the mondays
+#alldays    = DayLocator()               # minor ticks on the days
+#weekFormatter = DateFormatter('%b %d')  # Eg, Jan 12
+#dayFormatter = DateFormatter('%d')
 
 fig = figure()
 fig.subplots_adjust(bottom=0.2)
@@ -99,21 +96,15 @@ ax2 = fig.add_subplot(212)
 #ax.xaxis.set_major_locator(mondays)
 #ax.xaxis.set_minor_locator(alldays)
 #ax.xaxis.set_major_formatter(weekFormatter)
-ax1.xaxis.set_minor_formatter(dayFormatter)
-ax2.xaxis.set_minor_formatter(dayFormatter)
-
-candlestick(ax2, np.array(DATA_15MIN.GOOG), width=(1/48), colorup='g', colordown='r')
-candlestick(ax1, np.array(DATA_15MIN.AAPL), width=(1/48), colorup='g', colordown='r')
-
-
+#ax1.xaxis.set_minor_formatter(dayFormatter)
+#ax2.xaxis.set_minor_formatter(dayFormatter)
 
 # Plot
 
-
+candlestick(ax1, np.array(DATA_15MIN.AAPL), width=(1/48), colorup='g', colordown='r')
+candlestick(ax2, np.array(DATA_15MIN.GOOG), width=(1/48), colorup='g', colordown='r')
 
 #fig, (ax1, ax2) = plt.subplots(2, 1, sharex = True)
-
-#candlestick(ax1, DATA_15MIN.GOOG, width=1, colorup='g', colordown='r')
 
 ax1.set_ylabel('AAPL', size=20)
 ax2.set_ylabel('GOOG', size=20)
